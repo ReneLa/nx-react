@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import {useParams} from 'react-router-dom';
 import {useState,useEffect} from 'react'
 import { formatRating } from '@nx-react/store/util-formatters';
+import { Game } from '@nx-react/api/util-interfaces';
 
 /* eslint-disable-next-line */
 export interface StoreFeatureGameDetailProps {}
@@ -12,11 +13,11 @@ const StyledStoreFeatureGameDetail = styled.div`
 
 export function StoreFeatureGameDetail(props: StoreFeatureGameDetailProps) {
   const {id} = useParams();
-  const [state, setState]=useState<{
-    data:any,
-    loadingState:'success'|'error'|'loading'
+  const [state, setState]= useState<{
+    data:Game;
+    loadingState:'success' | 'error' | 'loading'
   }>({
-    data:{},
+    data:{id:'', name:"", description:"",price:0, rating:0,image:""},
     loadingState:'success'
   })
 
