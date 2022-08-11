@@ -1,15 +1,15 @@
 import styled from '@emotion/styled';
-import {useState, useEffect} from 'react'
 import {
   Card, CardActionArea, CardContent, CardMedia, Typography
 } from '@mui/material';
 import { Header } from '@nx-react/store/ui-shared';
 import { formatRating } from '@nx-react/store/util-formatters';
-import { getAllGames } from '../fake-api';
-
-import {Routes, Route, useNavigate } from 'react-router-dom';
-
+import { useEffect, useState } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Game } from '@nx-react/api/util-interfaces';
 import { StoreFeatureGameDetail } from '@nx-react/store/feature-game-detail';
+
+
 const StyledApp = styled.div`
   // Your style here
 `;
@@ -17,7 +17,7 @@ const StyledApp = styled.div`
 export function App() {
   const navigate=useNavigate()
   const [state, setState]=useState<{
-    data:any[],
+    data:Game [],
     loadingState:'success'|'error'|'loading'
   }>({
     data:[],
