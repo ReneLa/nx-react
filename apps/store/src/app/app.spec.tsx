@@ -1,10 +1,10 @@
-import { findAllByTestId, findByTestId, render } from '@testing-library/react';
+import { findByTestId, render } from '@testing-library/react';
 
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './app';
 
-function mockFetch(data:any[]){
+function mockFetch(data:[]){
   return jest.fn().mockImplementation(()=>{
     return Promise.resolve({
       ok:true,

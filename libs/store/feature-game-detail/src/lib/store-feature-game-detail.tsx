@@ -22,18 +22,18 @@ export function StoreFeatureGameDetail(props: StoreFeatureGameDetailProps) {
   })
 
   useEffect(()=>{
-    setState({...state, loadingState:'loading'});
+    setState((s)=>({...s, loadingState:'loading'}));
     fetch(`/api/games/${id}`)
     .then(res=> res.json())
     .then(res=>{
-      setState({...state,data:res, loadingState:'success'})
+      setState((s)=>({...s,data:res, loadingState:'success'}))
     })
     .catch(err=>{
-      setState({...state,loadingState:'error'})
+      setState((s)=>({...s,loadingState:'error'}))
     })
   },[id])
 
-
+   console.log('hi')
   return (
     <StyledStoreFeatureGameDetail>
     {state.loadingState==='loading'?
