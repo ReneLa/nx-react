@@ -1,1 +1,1 @@
-export * from './lib/api-util-interfaces';
+export * from './lib/game';
