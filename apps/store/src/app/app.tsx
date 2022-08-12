@@ -38,9 +38,9 @@ export function App() {
 
   return (
     <>
-      <Header />
+      <Header title='Welcome to Header!' />
       <StyledApp>
-        <div className="app">
+        <div className="app" data-testId='app-container'>
           {state.loadingState==='loading'?'loading...'
           :state.loadingState==='error'? <div>Has errored</div> 
           : state.data.map((game) => (
